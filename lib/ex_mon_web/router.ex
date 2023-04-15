@@ -7,6 +7,8 @@ defmodule ExMonWeb.Router do
 
   scope "/api", ExMonWeb do
     pipe_through :api
+    # Creating a CRUD for the trainer
+    resources "/trainers", TrainersController, only: [:create, :show, :delete, :update] # Only is not necessary, but it helps to especify
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
