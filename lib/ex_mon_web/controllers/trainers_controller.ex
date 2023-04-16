@@ -10,6 +10,11 @@ defmodule ExMonWeb.TrainersController do
   def handle_response({:ok, trainer}, conn) do
     conn
     |> put_status(:ok) # Writing ok is the same as writing 200(search for Phoenix:http status)
-    |> render("create.json", trainer: trainer)
+    |> json(%{
+          status: "Created",
+          name: trainer.name,
+          id: trainer.id,
+          inserted_at: trainer.inserted_at
+          })
   end
 end
