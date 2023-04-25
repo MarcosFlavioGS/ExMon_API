@@ -9,9 +9,11 @@ defmodule ExMonWeb.TrainersController do
     |> handle_response(conn)
   end
 
-  def handle_response({:ok, trainer}, conn) do
+  defp handle_response({:ok, trainer}, conn) do
     conn
     |> put_status(:ok) # Writing ok is the same as writing 200(search for Phoenix:http status)
     |> render(:create, trainer: trainer)
   end
+
+  defp handle_response({:error, _changeset} = error, _conn), do: error
 end
