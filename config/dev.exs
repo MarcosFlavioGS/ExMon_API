@@ -22,7 +22,7 @@ config :ex_mon, ExMonWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4000],
   check_origin: false,
   code_reloader: true,
-  debug_errors: true,
+  debug_errors: false,
   secret_key_base: "VBUP1w2+QXdghAQHGUd4APNT/Ea7wnhL2rPS8JZV3yvPeFpgO4nGm/UebaYjt2VV",
   watchers: [
     esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
