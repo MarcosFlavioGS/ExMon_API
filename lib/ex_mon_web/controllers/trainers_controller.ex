@@ -26,7 +26,7 @@ defmodule ExMonWeb.TrainersController do
   defp handle_delete({:ok, _trainer}, conn) do
     conn
     |> put_status(:ok)
-    |> json(%{"Trainer": "Trainer deleted !"})
+    |> json(%{"Trainer": "Deleted !"})
   end
 
   defp handle_delete({:error, _trainer} = error, _conn), do: error
