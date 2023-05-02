@@ -5,7 +5,8 @@ defmodule ExMonWeb.TrainersJSON do
       trainer: %{
         id: trainer.id,
         name: trainer.name,
-        inserted_at: trainer.inserted_at
+        inserted_at: trainer.inserted_at,
+        updated_at: trainer.updated_at
       }
     }
   end
@@ -14,7 +15,8 @@ defmodule ExMonWeb.TrainersJSON do
     %{
       id: trainer.id,
       name: trainer.name,
-      inserted_at: trainer.inserted_at
+      inserted_at: trainer.inserted_at,
+      updated_at: trainer.updated_at
     }
   end
 
@@ -24,7 +26,8 @@ defmodule ExMonWeb.TrainersJSON do
       trainer: %{
         id: trainer.id,
         name: trainer.name,
-        inserted_at: trainer.inserted_at
+        inserted_at: trainer.inserted_at,
+        updated_at: trainer.updated_at
       }
     }
   end
