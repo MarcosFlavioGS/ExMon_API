@@ -4,7 +4,7 @@ defmodule ExMonWeb.TrainersController do
   def create(conn, params) do
     params
     |> ExMon.create_trainer() # Call facade
-    |> handle_response(conn)
+    |> handle_response(conn, :create, :ok)
   end
 
   def delete(conn, %{"id" => id}) do
@@ -13,14 +13,19 @@ defmodule ExMonWeb.TrainersController do
     |> handle_delete(conn)
   end
 
-  # Create
-  defp handle_response({:ok, trainer}, conn) do
+  def show(conn, %{"id" => id}) do
+    id
+    |> ExMon.get_trainer()
+    |> handle_response(conn, :show, :ok)
+  end
+  # Create/show
+  defp handle_response({:ok, trainer}, conn, view, status) do
     conn
-    |> put_status(:ok) # Writing ok is the same as writing 200(search for Phoenix:http status)
-    |> render(:create, trainer: trainer)
+    |> put_status(status) # Writing ok is the same as writing 200(search for Phoenix:http status)
+    |> render(view, trainer: trainer)
   end
 
-  defp handle_response({:error, _changeset} = error, _conn), do: error
+  defp handle_response({:error, _changeset} = error, _conn, _view, _status), do: error
 
   #Delete
   defp handle_delete({:ok, _trainer}, conn) do

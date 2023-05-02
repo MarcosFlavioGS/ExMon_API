@@ -9,4 +9,12 @@ defmodule ExMonWeb.TrainersJSON do
       }
     }
   end
+
+  def show(%{trainer: trainer}) do
+    %{
+      id: trainer.id,
+      name: trainer.name,
+      inserted_at: trainer.inserted_at
+    }
+  end
 end
