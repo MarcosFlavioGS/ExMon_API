@@ -17,4 +17,15 @@ defmodule ExMonWeb.TrainersJSON do
       inserted_at: trainer.inserted_at
     }
   end
+
+  def update(%{trainer: trainer}) do
+    %{
+      status: "Updated",
+      trainer: %{
+        id: trainer.id,
+        name: trainer.name,
+        inserted_at: trainer.inserted_at
+      }
+    }
+  end
 end
